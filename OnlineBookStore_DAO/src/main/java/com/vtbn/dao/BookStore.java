@@ -23,8 +23,7 @@ public class BookStore extends HttpServlet {
         books = new ArrayList<Book>();
         bookDao = new BookDaoMemImpl();
     }
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1.
 		String bookId = request.getParameter("bookId");
 
@@ -46,7 +45,7 @@ public class BookStore extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		books = bookDao.getAllBooks();
 		request.setAttribute("books", books);
 		String address = null;
@@ -54,5 +53,4 @@ public class BookStore extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
 		dispatcher.forward(request, response);
 	}
-
 }

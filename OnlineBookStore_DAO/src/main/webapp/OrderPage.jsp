@@ -13,10 +13,6 @@
     <TR BGCOLOR=#F3ABB6>
         <TH>Item ID</TH><TH>Description</TH><TH>Unit Cost</TH><TH>Number</TH><TH>Total Cost</TH>
     </TR>
-    <% 
-			//HttpSession cartSession = request.getSession();
-			//ShoppingCart cart = (ShoppingCart) cartSession.getAttribute("shoppingCart");
-	%>
     <c:forEach var="i" items="${itemsOrdered}">
         <TR>
             <TD>${i.itemID}</TD>
@@ -38,7 +34,7 @@
 	</TABLE>
 	
 <br>
-<form action="BookStore" method="post">
+<form action="BookStore" method="get">
     <p style="text-align:center"> <input type="submit" value="Back" style="background-color: #8A5082; color: white;"> </p>
 </form>
 </body>
