@@ -29,7 +29,11 @@ public class OrderPage extends HttpServlet {
 		synchronized (session) {
 			cart = (ShoppingCart) session.getAttribute("shoppingCart");
 			if (cart == null) { // cart empty
-				cart = new ShoppingCart();
+				try {
+					cart = new ShoppingCart();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 				session.setAttribute("shoppingCart", cart);
 			}
 			if (itemID != null) {

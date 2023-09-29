@@ -1,49 +1,95 @@
 package com.vtbn.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookDaoMemImpl implements BookDao {
-	// list is working as a database
 	List<Book> books;
 
 	public BookDaoMemImpl() throws SQLException {
 		books = new ArrayList<Book>();
-		for (Book b : BookDB.getAllBooks()) {
-			books.add(b);
-		}
-	}
-	
-	@Override
-	public void deleteBook(Book book) {
-		//books.remove(book.getBookID());
-		//System.out.println("Book: BookID " + book.getBookID() + ", deleted from database");
 	}
 
-	// retrieve list of students from the database
 	@Override
 	public List<Book> getAllBooks() {
-		return books;
+		try {
+			String query = "SELECT * FROM Books";
+			PreparedStatement ps = BookDB.getConnection().prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Book book = new Book(rs.getString("bookID"), rs.getString("title"), rs.getString("title1"), rs.getString("description"), rs.getDouble("price"));
+                books.add(book);
+            }
+            return books;
+        } catch (SQLException e) {
+        	e.printStackTrace();
+        }
+        return null;
 	}
 
 	@Override
 	public Book getBook(String bookID) {
-		for(Book b : books) {
-			if(b.getBookID().equals(bookID)) {
-				return b;
-			}
-		}
-		return null;
+		Book book = null;
+		try {
+			String query = "SELECT * FROM Books WHERE bookID = ?";// ? is placeholders
+            PreparedStatement ps = BookDB.getConnection().prepareStatement(query);
+            ps.setInt(1, Integer.parseInt(bookID));
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                book = new Book(rs.getString("bookID"), rs.getString("title"), rs.getString("title1"), rs.getString("description"), rs.getDouble("price"));
+            }
+            return book;
+        } catch (SQLException e) {
+        	e.printStackTrace();
+        }
+        return null;
 	}
 
 	@Override
 	public void updateBook(Book book) {
-		//books.get(book.getBookID()).setTitle(book.getTitle());
-		//System.out.println("Student: Roll No " + book.getBookID() + ", updated in the database");
+		String query = "UPDATE books SET price = ? WHERE bookID = ?";
+		try {
+			PreparedStatement ps = BookDB.getConnection().prepareStatement(query);
+			int bookid = Integer.parseInt(book.getBookID());
+			ps.setDouble(1, book.getPrice());
+			ps.setInt(2, bookid);
+			ps.executeUpdate();
+			System.out.println("Book: " + book.getBookID() + ", updated in the database");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void deleteBook(Book book) {
+		String query = "DELETE FROM books WHERE bookID = ?";
+		try {
+			PreparedStatement ps = BookDB.getConnection().prepareStatement(query);
+			int bookid = Integer.parseInt(book.getBookID());
+			ps.setInt(1, bookid);
+			ps.executeUpdate();
+			System.out.println("Book: " + book.getBookID() + ", deleted in the database");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void addBook(Book book) {
+		String query = "INSERT INTO books (title, title1, [description], price) VALUES (?,?,?,?)";
+		try {
+			PreparedStatement ps = BookDB.getConnection().prepareStatement(query);
+			ps.setString(1, book.getTitle());
+			ps.setString(2, book.getTitle1());
+			ps.setString(3, book.getDescription());
+			ps.setDouble(4, book.getPrice());
+			ps.executeUpdate();
+			System.out.println("Book: " + book.getBookID() + ", inserted in the database");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

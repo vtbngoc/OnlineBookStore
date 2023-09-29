@@ -13,7 +13,11 @@
 	</head>
 	<h1 ALIGN=CENTER>All-Time Best Computer Books</h1>
 	<body>
-		
+		<%
+			BookDao bookDao = new BookDaoMemImpl();
+			List<Book> books = bookDao.getAllBooks();
+			request.setAttribute("books", books);
+		%>
 		<hr>
 		<c:forEach var="b" items="${books}">
 			<I>${b.title}</I> <B>${b.title1} $${b.price}</B><br>${b.description}

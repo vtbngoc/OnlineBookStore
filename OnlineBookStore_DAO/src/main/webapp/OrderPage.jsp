@@ -30,7 +30,6 @@
             <TD>$${i.totalCost}</TD>
         </TR>
     </c:forEach>
-    <% 		//} %>
 	</TABLE>
 	
 <br>
