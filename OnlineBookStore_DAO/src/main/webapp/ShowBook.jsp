@@ -6,12 +6,12 @@
 <meta charset="ISO-8859-1">
 <title>Show Book</title>
 <style>
-body {
-	background-image: linear-gradient(to bottom right, #33539E, #E8B7D4, #A5678E, #7FACD6,
-		#BFB8DA, #E8B7D4);
-}
+body { background-image: linear-gradient(to bottom right, #33539E, #E8B7D4, #A5678E, #7FACD6, #BFB8DA, #E8B7D4);}
 </style>
 </head>
+<form action="findBook.jsp">
+    <p style="text-align:start"> <input type="submit" value="Search" style="background-color: pink; color: black;"> </p>
+</form>
 <H1 ALIGN=CENTER>
 	<I>Show Book</I>
 </H1>
