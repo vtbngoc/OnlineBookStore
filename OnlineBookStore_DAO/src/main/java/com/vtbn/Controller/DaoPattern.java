@@ -1,8 +1,8 @@
-package com.vtbn.Controller;
+package com.vtbn.controller;
 
 import java.sql.SQLException;
 
-import com.vtbn.Model.*;
+import com.vtbn.model.*;
 
 public class DaoPattern {
 	public static void main(String[] args) throws SQLException {

@@ -19,7 +19,7 @@
             <TD>${i.title} <B>${i.title1}</B></TD>
             <TD>$${i.price}</TD>
             <TD>
-                <FORM ACTION="OrderPage">
+                <FORM ACTION="Order">
                     <INPUT TYPE="HIDDEN" NAME="itemID" VALUE="${i.itemID}">
                     <INPUT TYPE="TEXT" NAME="number" SIZE="3" VALUE="${i.number}" style="background-color: #A8DEE0; color: black;">
                     <SMALL>
@@ -33,7 +33,7 @@
 	</TABLE>
 	
 <br>
-<form action="BookStore" method="get">
+<form action="Store" method="get">
     <p style="text-align:center"> <input type="submit" value="Back" style="background-color: #8A5082; color: white;"> </p>
 </form>
 </body>

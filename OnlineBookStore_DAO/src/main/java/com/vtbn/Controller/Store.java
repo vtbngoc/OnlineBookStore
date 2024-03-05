@@ -1,4 +1,4 @@
-package com.vtbn.Controller;
+package com.vtbn.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -10,18 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.vtbn.Model.*;
+import com.vtbn.model.*;
 
-@WebServlet("/BookStore")
-public class BookStore extends HttpServlet {
+@WebServlet("/Store")
+public class Store extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private BookDao bookDao;
-	
-    public BookStore() throws SQLException {
-        super();
-        bookDao = new BookDaoMemImpl();
-    }
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	public Store() throws SQLException {
+		super();
+		bookDao = new BookDaoMemImpl();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// 1.
 		String bookId = request.getParameter("bookId");
 
@@ -30,23 +32,24 @@ public class BookStore extends HttpServlet {
 
 		// 3.
 		request.setAttribute("book", book);
-        
-        // 4.
-        String address = null;
-        if(book == null) {
-        	address = "NoBook.jsp";
-        }
-        else {
-        	address = "ShowBook.jsp";
-        }
+
+		// 4.
+		String address = null;
+		if (book == null) {
+			address = "NoBook.jsp";
+		} else {
+			address = "ShowBook.jsp";
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
 		dispatcher.forward(request, response);
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String address = null;
 		address = "ShowAllBooks.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
 		dispatcher.forward(request, response);
 	}
+
 }

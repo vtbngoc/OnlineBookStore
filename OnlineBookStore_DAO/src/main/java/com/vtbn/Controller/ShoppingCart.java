@@ -1,10 +1,10 @@
-package com.vtbn.Controller;
+package com.vtbn.controller;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.vtbn.Model.*;
+import com.vtbn.model.*;
 
 public class ShoppingCart {
 	private List<Item> itemsOrdered;
@@ -16,7 +16,7 @@ public class ShoppingCart {
 	public List<Item> getItemsOrdered() {
 		 return(itemsOrdered);
 	}
-	public static Book getItem(String itemID) throws SQLException{
+	public static Book getItem(String itemID) throws SQLException{ //tìm cuốn sách theo id truy�?n vào
 		if (itemID == null) {
 			return (null);
 		}

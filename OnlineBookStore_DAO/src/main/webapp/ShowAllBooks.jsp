@@ -1,6 +1,5 @@
-<%@page import="com.vtbn.Controller.BookDao"%>
-<%@page import="com.vtbn.Model.Book"%>
-<%@page import="com.vtbn.Controller.BookDaoMemImpl"%>
+<%@page import="com.vtbn.controller.*"%>
+<%@page import="com.vtbn.model.Book"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -21,7 +20,7 @@
 		<hr>
 		<c:forEach var="b" items="${books}">
 			<I>${b.title}</I> <B>${b.title1} $${b.price}</B><br>${b.description}
-			<form action=OrderPage method="post">
+			<form action=Order method="post">
 				<input type="hidden" name="itemID" value="${b.bookID}">
 				<p style="text-align:center"><input type="submit" value="Add to Shopping Cart" style="background-color: pink; color: black;"></p>
 			</form>

@@ -1,4 +1,4 @@
-package com.vtbn.Model;
+package com.vtbn.model;
 
 public class Book {
 	private String bookID;

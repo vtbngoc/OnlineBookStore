@@ -20,7 +20,7 @@ body {
 	<I>${book.title}</I>
 	<B>${book.title1} $${book.price}</B>
 	<br>${book.description}
-	<form action=OrderPage method="post">
+	<form action=Order method="post">
 		<input type="hidden" name="itemID" value="${book.bookID}">
 		<p style="text-align: center">
 			<input type="submit" value="Add to Shopping Cart"

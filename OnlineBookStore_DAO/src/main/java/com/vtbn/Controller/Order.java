@@ -1,4 +1,4 @@
-package com.vtbn.Controller;
+package com.vtbn.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -12,13 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.vtbn.Model.*;
+import com.vtbn.model.*;
 
-@WebServlet("/OrderPage")
-public class OrderPage extends HttpServlet {
+
+@WebServlet("/Order")
+public class Order extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
-    public OrderPage() {
+       
+    public Order() {
         super();
     }
 

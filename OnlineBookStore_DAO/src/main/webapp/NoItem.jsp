@@ -8,7 +8,7 @@
 </head>
 <body>
 	<BR><H2 ALIGN=CENTER><I>No items in your cart...</I></H2>
-	<form action="BookStore" method="get">
+	<form action="Store" method="get">
     	<p style="text-align:center"> <input type="submit" value="Back" style="background-color: pink; color: black;"> </p>
 	</form>
 </body>

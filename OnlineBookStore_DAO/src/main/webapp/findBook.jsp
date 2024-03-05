@@ -7,7 +7,7 @@
 <style> body{background-image: linear-gradient(to bottom right, #33539E, #E8B7D4, #A5678E, #7FACD6, #BFB8DA, #E8B7D4);} </style>
 </head>
 <body>
-	<form action="BookStore" method="post">
+	<form action="Store" method="post">
 		Book ID: <input type="text" name="bookId"><br>
 		<input type="submit" value="Show information of book">
 	</form>
