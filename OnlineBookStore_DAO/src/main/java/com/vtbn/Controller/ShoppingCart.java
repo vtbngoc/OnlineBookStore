@@ -16,18 +16,6 @@ public class ShoppingCart {
 	public List<Item> getItemsOrdered() {
 		 return(itemsOrdered);
 	}
-	public static Book getItem(String itemID) throws SQLException{
-		if (itemID == null) {
-			return (null);
-		}
-		List<Book> books = Dao.getAllBooks();
-		for (Book b : books) {
-			if (itemID.equals(b.getBookID())) {
-				return (b);
-			}
-		}
-		return (null);
-	}
 	public synchronized void addItem(String itemID) throws SQLException {
 		 for(Item item : itemsOrdered) {
 			 if (item.getItemID().equals(itemID)) {
