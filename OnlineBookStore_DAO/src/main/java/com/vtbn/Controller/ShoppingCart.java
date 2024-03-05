@@ -16,7 +16,7 @@ public class ShoppingCart {
 	public List<Item> getItemsOrdered() {
 		 return(itemsOrdered);
 	}
-	public static Book getItem(String itemID) throws SQLException{ //tìm cuốn sách theo id truy�?n vào
+	public static Book getItem(String itemID) throws SQLException{
 		if (itemID == null) {
 			return (null);
 		}
@@ -35,7 +35,7 @@ public class ShoppingCart {
 				 return;
 			 }
 		 }
-		 Item newOrder = new Item(getItem(itemID));
+		 Item newOrder = new Item(Dao.getBook(itemID));
 		 itemsOrdered.add(newOrder);
 	}
 	public synchronized void setNumOrdered(String itemID, int numOrdered) throws SQLException {
@@ -49,7 +49,7 @@ public class ShoppingCart {
 				 return;
 			 }
 		 }
-		 Item newOrder = new Item(getItem(itemID));
+		 Item newOrder = new Item(Dao.getBook(itemID));
 		 itemsOrdered.add(newOrder);
 	}
 }

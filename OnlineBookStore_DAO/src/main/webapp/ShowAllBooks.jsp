@@ -10,6 +10,9 @@
 		<title>All-Time Best Computer Book</title>
 		<style> body{background-image: linear-gradient(to bottom right, #33539E, #E8B7D4, #A5678E, #7FACD6, #BFB8DA, #E8B7D4);} </style>
 	</head>
+	<form action="findBook.jsp">
+    	<p style="text-align:start"> <input type="submit" value="Search" style="background-color: pink; color: black;"> </p>
+	</form>
 	<h1 ALIGN=CENTER>All-Time Best Computer Books</h1>
 	<body>
 		<% //scriptlet

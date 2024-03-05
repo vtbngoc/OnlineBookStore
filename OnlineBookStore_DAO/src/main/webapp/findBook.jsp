@@ -11,5 +11,8 @@
 		Book ID: <input type="text" name="bookId"><br>
 		<input type="submit" value="Show information of book">
 	</form>
+	<form action="ShowAllBooks.jsp">
+    	<p style="text-align:start"> <input type="submit" value="Back" style="background-color: pink; color: black;"> </p>
+	</form>
 </body>
 </html>
