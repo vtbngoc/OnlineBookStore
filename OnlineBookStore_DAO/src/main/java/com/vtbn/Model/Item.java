@@ -1,5 +1,4 @@
-package com.vtbn.dao;
-
+package com.vtbn.Model;
 
 public class Item {
 	private Book item;

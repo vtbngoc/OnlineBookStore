@@ -1,4 +1,4 @@
-package com.vtbn.dao;
+package com.vtbn.Model;
 
 public class Book {
 	private String bookID;
@@ -48,3 +48,4 @@ public class Book {
 		this.price = price;
 	}
 }
+

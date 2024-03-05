@@ -1,8 +1,10 @@
-package com.vtbn.dao;
+package com.vtbn.Controller;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.vtbn.Model.*;
 
 public class ShoppingCart {
 	private List<Item> itemsOrdered;

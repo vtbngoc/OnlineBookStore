@@ -1,4 +1,4 @@
-package com.vtbn.dao;
+package com.vtbn.Controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

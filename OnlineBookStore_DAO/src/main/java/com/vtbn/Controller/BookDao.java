@@ -1,6 +1,8 @@
-package com.vtbn.dao;
+package com.vtbn.Controller;
 
 import java.util.List;
+
+import com.vtbn.Model.*;
 
 public interface BookDao {
 	public List<Book> getAllBooks();

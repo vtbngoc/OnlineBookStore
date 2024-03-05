@@ -1,6 +1,6 @@
-<%@page import="com.vtbn.dao.BookDao"%>
-<%@page import="com.vtbn.dao.Book"%>
-<%@page import="com.vtbn.dao.BookDaoMemImpl"%>
+<%@page import="com.vtbn.Controller.BookDao"%>
+<%@page import="com.vtbn.Model.Book"%>
+<%@page import="com.vtbn.Controller.BookDaoMemImpl"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -13,7 +13,7 @@
 	</head>
 	<h1 ALIGN=CENTER>All-Time Best Computer Books</h1>
 	<body>
-		<%
+		<% //scriptlet
 			BookDao bookDao = new BookDaoMemImpl();
 			List<Book> books = bookDao.getAllBooks();
 			request.setAttribute("books", books);

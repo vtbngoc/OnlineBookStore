@@ -1,4 +1,4 @@
-package com.vtbn.dao;
+package com.vtbn.Controller;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,10 +6,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.vtbn.Model.*;
+
 public class BookDaoMemImpl implements BookDao {
 	List<Book> books;
 
-	public BookDaoMemImpl() throws SQLException {
+	public BookDaoMemImpl() {
 		books = new ArrayList<Book>();
 	}
 
