@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet">
 <title>Home</title>
 <style> body{background-image: linear-gradient(to bottom right, #33539E, #E8B7D4, #A5678E, #7FACD6, #BFB8DA, #E8B7D4);} </style>
 </head>

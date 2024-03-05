@@ -20,6 +20,37 @@ public class DAOMemImpl implements DAO{
 		studentsofpro = new ArrayList<Student>();
 		Stu_Pro = new ArrayList<Student_Professor>();
 	}
+	
+	@Override
+	public void addStudent(Student student) {
+		String query = "INSERT INTO STUDENT ([no], [name], major) VALUES (?,?,?)";
+		try {
+			PreparedStatement ps = ConnectDB.getConnection().prepareStatement(query);
+			ps.setString(1, student.getNo());
+			ps.setString(2, student.getName());
+			ps.setString(3, student.getMajor());
+			ps.executeUpdate();
+			System.out.println("Student: " + student.getNo() + ", inserted in the database");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void addProfessor(Professor professor) {
+		String query = "INSERT INTO PROFESSOR ([no], [name], department) VALUES (?,?,?)";
+		try {
+			PreparedStatement ps = ConnectDB.getConnection().prepareStatement(query);
+			ps.setString(1, professor.getNo());
+			ps.setString(2, professor.getName());
+			ps.setString(3, professor.getDepartment());
+			ps.executeUpdate();
+			System.out.println("Student: " + professor.getNo() + ", inserted in the database");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public List<Student> getAllStudentsOfProfessor(String noPro) {
 		try {
@@ -73,6 +104,35 @@ public class DAOMemImpl implements DAO{
         return null;
 	}
 
+	
+	@Override
+	public void updateStudent(Student student) {
+		String query = "UPDATE STUDENT SET major = ? WHERE no = ?";
+		try {
+			PreparedStatement ps = ConnectDB.getConnection().prepareStatement(query);
+			ps.setString(1, student.getMajor());
+			ps.setString(2, student.getNo());
+			ps.executeUpdate();
+			System.out.println("Student: " + student.getNo() + ", updated in the database");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void updateProfessor(Professor professor) {
+		String query = "UPDATE STUDENT SET department = ? WHERE no = ?";
+		try {
+			PreparedStatement ps = ConnectDB.getConnection().prepareStatement(query);
+			ps.setString(1, professor.getDepartment());
+			ps.setString(2, professor.getNo());
+			ps.executeUpdate();
+			System.out.println("Student: " + professor.getNo() + ", updated in the database");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public void registerProfessor(String noStu, String noPro) {
 	    try {
