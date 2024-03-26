@@ -1,0 +1,82 @@
+@charset "UTF-8";
+.img-product {
+    width: 100%;
+}
+
+.carousel-control-prev {
+    left: 1%;
+    width: 10%;
+}
+
+.carousel-control-next {
+    right: 1%;
+    width: 10%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgb(104, 104, 104);
+    border-radius: 30%;
+    box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+}
+
+.carousel-control-prev-icon:hover, .carousel-control-next-icon:hover {
+    background-color: rgba(70, 70, 70, 0.901);
+    border-radius: 30%;
+    box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.btn-slide-1{
+    background-image: url("../products/tanktop-women-green.jfif");
+    background-size: cover;
+}
+
+.btn-slide-2{
+    background-image: url("../products/tanktop-women-dark.jfif");
+    background-size: cover;
+}
+
+.btn-slide-3{
+    background-image: url("../products/tanktop-women-purple.jfif");
+    background-size: cover;
+}
+
+.carousel-item {
+    transition: .5s ease-out;
+}
+
+.list-sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.list-sizes .size{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-right: 10px;
+}
+
+.list-sizes .size input{
+    width: 25px;
+    height: 25px;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.list-sizes .size label {
+    color: black;
+    font-weight: 500;
+}

@@ -1,0 +1,32 @@
+.bread-crumb {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.bread-crumb, .bread-crumb .link {
+    color: #656565;
+}
+
+.bread-crumb .link, .bread-crumb .strong, .bread-crumb .span {
+    font-weight: normal;
+}
+
+.breadcrumb-item.active span {
+    font-weight: bold;
+}
+
+.bread-crumb a.link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bread-crumb, .bread-crumb .breadcrumb {
+    background-color: #e5eefd;
+}
+
+.bread-crumb .breadcrumb, .bread-crumb .breadcrumb .breadcrumb {
+    padding: 0.25rem 1rem;
+}
+
+.bread-crumb .col-12 {
+    padding-left: 25px;
+}

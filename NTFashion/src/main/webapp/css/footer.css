@@ -1,0 +1,76 @@
+@charset "UTF-8";
+/* Footer */
+
+.footer {
+    background-color: var(--color-3);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer a {
+    white-space: nowrap;
+}
+
+.footer .mid-footer {
+    color: var(--color-0);
+    padding: 50px 0px;
+}
+
+.footer .mid-footer .title-menu {
+    font-size: 18px;
+    margin-bottom: 10px;
+    position: relative;
+    color: var(--color-0);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.footer .social a {
+    width: 40px;
+    height: 40px;
+}
+
+.footer .mid-footer .content-mailchimp {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.footer .mid-footer .newsletter-form {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.footer .mid-footer .newsletter-form .form-control {
+    width: 100%;
+}
+
+.footer .mid-footer .newsletter-form button {
+    height: 32px;
+    border: 0;
+    background-color: var(--color-5);
+    color: var(--color-0);
+    padding: 0px 15px;
+    margin-top: 0px;
+    border-radius: 15px;
+    position: absolute;
+    right: 4px;
+    top: 3px;
+    transition: all .4s ease;
+}
+
+.payment li {
+    padding-right: 10px;
+}
+
+.payment img {
+    width: 60px;
+    height: 30px;
+}
+
+@media (max-width: 1040px) {
+    .footer .ft-menu .row .col-12 {
+        width: 50%;
+    }
+}

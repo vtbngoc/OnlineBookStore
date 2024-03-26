@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html :class="{'theme-dark':dark}" x-data="data()" class="theme-dark" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <img src="https://img.upanh.tv/2024/03/17/p3.1_croptop.png" alt="">
+    <div class="bg-gray-50 dark:bg-gray-900">
+        <!-- Input area -->
+        <label for="Speech Recognition">Speech Recognition</label>
+        <input type="text" name="" id="speechToText" placeholder="Speak Something">
+        <button onclick="record()"><i id="micro-icon" class="fa-solid fa-microphone"></i></button>
+
+        <!-- Below is the script for voice recognition and conversion to text-->
+    </div>
+
+    <script>
+        function record() {
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang = "vi-VN";
+
+            var audioContext = new AudioContext();
+            var analyser = audioContext.createAnalyser();
+            var microphone;
+
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(function (stream) {
+                    microphone = audioContext.createMediaStreamSource(stream);
+                    microphone.connect(analyser);
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+
+            recognition.onresult = function (event) {
+                var pitch = getPitch(event.results[0][0].transcript);
+                changeMicrophoneColor(pitch);
+                document.getElementById('speechToText').value = event.results[0][0].transcript;
+            };
+
+            recognition.start();
+
+            function getPitch(transcript) {
+                // Tính toán tần số, áp dụng thuật toán xử lý tín hiệu và trích xuất pitch từ âm thanh
+                // Lưu ý rằng việc tính toán tần số là một quá trình phức tạp và cần sử dụng các thư viện hoặc thuật toán phù hợp.
+                // Trong ví dụ này, chúng tôi giả định rằng bạn đã có một hàm getPitch() để tính toán tần số từ văn bản nhận dạng.
+
+                // Giả sử hàm getPitch() trả về giá trị tần số từ 0 đến 1, trong đó 0 là tông giọng thấp nhất và 1 là tông giọng cao nhất.
+                // Bạn có thể điều chỉnh phạm vi này để phù hợp với nhu cầu của mình.
+                var pitch = 0.5; // Giá trị mặc định nếu không tính được tần số
+                return pitch;
+            }
+
+            function changeMicrophoneColor(pitch) {
+                var microIcon = document.getElementById('micro-icon');
+                var hue = (1 - pitch) * 120; // Chuyển đổi giá trị tần số thành giá trị hue trong phạm vi từ 0-120 (màu đỏ đến màu xanh lá cây)
+                microIcon.style.filter = "hue-rotate(" + hue + "deg)";
+            }
+        }
+    </script>
+    <!-- end of script -->
+</body>
+
+</html>
